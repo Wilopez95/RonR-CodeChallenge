@@ -1,0 +1,8 @@
+<%= form_tag(items_path, class: 'form-inline') do %>
+  <div class="form-group">
+    <%= label_tag 'item_id', 'Code:' %>
+    <%= text_field_tag 'item_id' %>
+  </div>
+  <%= button_tag %>
+<% end %>
+<%= link_to "Back", root_path(),class: "nav-link" %>

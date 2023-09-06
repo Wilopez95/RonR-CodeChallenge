@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h2 class="mt-4">Clearance Batch <%= @clearance_batch.id %></h2>
+
+    <div class="mt-4">
+      <p><span class="font-weight-bold">Total items:</span> <%= @clearance_batch.items.count %></p>
+      <p><span class="font-weight-bold">Total price:</span> <%= number_to_currency(@clearance_batch.total_price) %></p>
+    </div>
+
+    <table class="clearance-batches mt-4 table table-striped">
+      <thead>
+        <tr>
+          <th>Item ID</th>
+          <th>Item type</th>
+          <th>Style name</th>
+          <th>Color</th>
+          <th>Size</th>
+          <th class="text-right">Price sold</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- @items.each do |item| -%>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.style.type %></td>
+            <td><%= item.style.name %></td>
+            <td><%= item.color %></td>
+            <td><%= item.size %></td>
+            <td class="text-right"><%= number_to_currency(item.price_sold) %></td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+</div>
